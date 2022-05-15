@@ -10,13 +10,13 @@ function ItemCount ({stock, initial,onAdd}){
 
     function handlePlusButton(){
         if (count < stock){
-            setCount(count+1);
+            setCount(count + 1);
         }
     }
 
-    function handleMinusPlusButton(){
+    function handleMinusButton(){
         if (count < stock){
-            setCount(count-1);
+            setCount(count - 1);
         }
         
     }
@@ -24,11 +24,11 @@ function ItemCount ({stock, initial,onAdd}){
     return (
         <div className='item-count-container'>
             <div>
-                <button onClick={() => handlePlusButton()}> + </button>
+                <button onClick={() => handleMinusButton()}> - </button>
                 <input readOnly value={count}/>
-                <button onClick={() => handleMinusPlusButton()}> - </button>         
+                <button onClick={() => handlePlusButton()}> + </button>         
             </div>
-            <Button onClick={()=> (count <= stock) && onAdd()}> Agregar al carrito </Button>       
+            <button onClick={()=> (count <= stock) && onAdd(count)}> Agregar al carrito </button>       
         
         </div>
     )
